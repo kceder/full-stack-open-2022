@@ -36,10 +36,10 @@ const App = () => {
     console.log(event.target.value);
     setNewName(event.target.value)
   }
-  const handleNumChange = (event) => {
-    console.log(event.target.value);
-    setNewNumber(event.target.value)
-  }
+  // const handleNumChange = (event) => {
+  //   console.log(event.target.value);
+  //   setNewNumber(event.target.value)
+  // }
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
 
@@ -51,7 +51,7 @@ const App = () => {
           name: <input onChange={handleChange}/>
         </div>
         <div>
-          number: <input onChange={handleNumChange}/>
+          {/* number: <input onChange={handleNumChange}/> */}
         </div>
         <div>
           <button disabled={newName.length > 0 ? false : true} type="submit">add</button>
