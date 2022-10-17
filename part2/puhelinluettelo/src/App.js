@@ -16,20 +16,32 @@ const App = () => {
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas' }
   ])
+
   const addPerson = (event) => {
     event.preventDefault()
-    const personsObject = {
-      name: newName
+    const duplicate = persons.filter((person) => person.name === newName)
+    if (duplicate.length ==! 0)
+      alert(`${newName} is already added to phonebook`)
+    else {
+      event.preventDefault()
+      const personsObject = {
+        name: newName
+      }
+      setPersons(persons.concat(personsObject))
+      setNewName('')
+      event.target.reset()
     }
-    setPersons(persons.concat(personsObject))
-    event.target.reset()
-    console.log(persons);
   }
   const handleChange = (event) => {
     console.log(event.target.value);
     setNewName(event.target.value)
   }
+  const handleNumChange = (event) => {
+    console.log(event.target.value);
+    setNewNumber(event.target.value)
+  }
   const [newName, setNewName] = useState('')
+  const [newNumber, setNewNumber] = useState('')
 
   return (
     <div>
@@ -37,6 +49,9 @@ const App = () => {
       <form onSubmit={addPerson}>
         <div>
           name: <input onChange={handleChange}/>
+        </div>
+        <div>
+          number: <input onChange={handleNumChange}/>
         </div>
         <div>
           <button disabled={newName.length > 0 ? false : true} type="submit">add</button>
