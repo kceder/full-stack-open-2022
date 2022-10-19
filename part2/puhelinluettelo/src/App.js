@@ -5,10 +5,10 @@ const Persons = ({persons}) => {
     persons.map(key => <li key={Math.random()}>{key.name} | number: {key.number}</li>)
   )
 }
-
-const Filter = ({value, onChange}) => {
+const Numbers = ({numbers}) => {
+  console.log(numbers);
   return (
-    <p><input value={value} onChange={onChange}></input></p>
+    numbers.map(key => <li>{key.numbers}</li>)
   )
 }
 const App = () => {
@@ -45,10 +45,13 @@ const App = () => {
     console.log(event.target.value);
     setNewNumber(event.target.value)
   }
+<<<<<<< HEAD
   const filterPersons = (event) => {
     const filter = event.target.value
     setNewFilter(filter)
   }
+=======
+>>>>>>> 605c976001054aa088279b4e62a1579031ab7524
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filterPerson, setNewFilter] = useState('')
@@ -58,8 +61,17 @@ const App = () => {
       <h2>Phonebook</h2>
       <Filter value={filterPerson} onChange={filterPersons}></Filter>
       <form onSubmit={addPerson}>
+<<<<<<< HEAD
         <div>name: <input onChange={handleChange}/></div>
         <div>number: <input onChange={handleNumChange}/></div>
+=======
+        <div>
+          name: <input onChange={handleChange}/>
+        </div>
+        <div>
+          number: <input onChange={handleNumChange}/>
+        </div>
+>>>>>>> 605c976001054aa088279b4e62a1579031ab7524
         <div>
           <button disabled={newName.length > 0 ? false : true} type="submit">add</button>
         </div>
@@ -73,7 +85,5 @@ const App = () => {
         Debug num: {newNumber}
     </div>
   )
-
 }
-
 export default App
